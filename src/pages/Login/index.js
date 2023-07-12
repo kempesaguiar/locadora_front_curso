@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Card from '../../components/Card';
 import FormGroup from '../../components/FormGroup';
+import api from '../../services/api';
 
 function Login() {
 
@@ -13,6 +14,29 @@ function Login() {
 
     const entrar = () => {
         console.log('Entrar');
+
+        const usuario = {
+            email: email,
+            senha: senha
+        }
+
+        console.log(email);
+        console.log(senha);
+
+        api
+        .post("/clientes/login",
+        {
+            email: email,
+            telefone: senha,
+        },
+        )
+        .then((response) => {
+            setuser(response.data)
+            history.push("/home");
+        })
+        .catch((erro) => {
+            console.log(erro);
+        });
     }
 
     const cadastrarUsuario = () => {
