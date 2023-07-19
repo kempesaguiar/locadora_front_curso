@@ -32,7 +32,7 @@ function Login() {
         )
         .then((response) => {
             setuser(response.data)
-            history.push("/home");
+            history.push("/cliente");
         })
         .catch((erro) => {
             console.log(erro);
@@ -41,6 +41,37 @@ function Login() {
 
     const cadastrarUsuario = () => {
         console.log('Cadastro');
+
+        const usuario = {
+            email: email,
+            senha: senha
+        }
+
+        console.log(email);
+        console.log(senha);
+
+        const quebraString = email.split('@');
+        const nome = quebraString[0];
+
+        console.log(nome);
+
+        api
+        .post("/clientes",
+        {
+            nome: nome,
+            email: email,
+            telefone: senha,
+        },
+        )
+        .then((response) => {
+            setuser(response.data)
+            history.push("/home");
+        })
+        .catch((erro) => {
+            console.log(erro);
+        });
+
+
     }
 
     const sair = () => {
