@@ -54,6 +54,7 @@ function Login() {
         const nome = quebraString[0];
 
         console.log(nome);
+        console.log(quebraString);
 
         api
         .post("/clientes",
