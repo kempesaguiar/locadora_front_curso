@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../../services/api';
 import FilmesTable from '../FilmesTable';
+import Card from '../../components/Card';
 
 function ListaFilmes() {
 
@@ -15,6 +16,18 @@ function ListaFilmes() {
     const [state, setState] = useState({
         filmes: []
     });
+
+    const alugaFilme = () => {
+        console.log('Aluga filme');
+    };
+
+    const detalhesFilme = () => {
+        console.log('Detalhes filme');
+    };
+
+    const valorAlugel = () => {
+        console.log('Valor aluguel');
+    }
 
 
     useEffect(() => {
@@ -41,7 +54,18 @@ function ListaFilmes() {
     }, []);
 
     return (
-        <FilmesTable filmes={state.filmes} />
+        <Card title="Consultar Filmes">
+            <div className='row'>
+                <div className='col-md-12'>
+                    <div className='bs-component'>
+                    <FilmesTable filmes={state.filmes} 
+                        alugaFilme={alugaFilme}
+                        detalhesFilme={detalhesFilme}
+                        valorAlugel={valorAlugel} />
+                    </div>
+                </div>
+            </div>
+        </Card>
     );
 
 }
