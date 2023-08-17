@@ -17,16 +17,42 @@ function ListaFilmes() {
         filmes: []
     });
 
-    const alugaFilme = () => {
+    const alugaFilme = (id) => {
         console.log('Aluga filme');
+
+        const idCliente = JSON.parse(localStorage.getItem("userId"));
+        console.log(idCliente);
+
+        const cliente = {
+            id: idCliente
+        }
+
+        api
+        .post("/locacoes",
+        {
+            cliente,
+            "filme": {id},
+            "data": "17/08/2023",
+            "valor": "10,00"
+        },
+        )
+        .then((response) => {
+            console.log(response.data)
+            history.push("/cliente");
+        })
+        .catch((erro) => {
+            console.log(erro);
+        });
+
+
     };
 
     const detalhesFilme = () => {
         console.log('Detalhes filme');
     };
 
-    const valorAlugel = () => {
-        console.log('Valor aluguel');
+    const valorFilme = () => {
+        console.log('Valor filme');
     }
 
 
@@ -61,7 +87,7 @@ function ListaFilmes() {
                     <FilmesTable filmes={state.filmes} 
                         alugaFilme={alugaFilme}
                         detalhesFilme={detalhesFilme}
-                        valorAlugel={valorAlugel} />
+                        valorFilme={valorFilme} />
                     </div>
                 </div>
             </div>

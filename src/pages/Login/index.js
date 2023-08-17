@@ -32,6 +32,11 @@ function Login() {
         )
         .then((response) => {
             setuser(response.data)
+            var userId = response.data.id;
+            var prodUser = response.data;
+            console.log(userId);
+            localStorage.setItem("userId", userId);
+            localStorage.setItem("prodUser", JSON.stringify(prodUser));
             history.push("/cliente");
         })
         .catch((erro) => {
