@@ -15,7 +15,7 @@ return(
         </button>
         <br/><br></br>
         <button style={{ width: '100%' }}
-            onClick={() => history.push('/home')}
+            onClick={() => history.push('/listafilmesAlugados')}
             className="btn btn-info btn-lg">
             <i className="pi pi-sign-in"></i> &nbsp; Filmes alugados
         </button>

@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Cliente from './pages/Cliente';
 import ListaFilmes from './pages/ListaFilmes';
+import ListaFilmesAlugados from "./pages/ListaFilmesAlugados";
 
 export default function Routes() {
     return (
@@ -14,6 +15,7 @@ export default function Routes() {
             <Route path="/login" exact component={Login} />
             <Route path="/cliente" exact component={Cliente} />
             <Route path="/listafilmes" exact component={ListaFilmes} />
+            <Route path="/listafilmesAlugados" exact component={ListaFilmesAlugados} />
         </BrowserRouter>
     )
 }
