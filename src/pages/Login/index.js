@@ -70,7 +70,9 @@ function Login() {
         },
         )
         .then((response) => {
-            setuser(response.data)
+            setuser(response.data);
+            console.log(response.data);
+            alert('Cliente ID ' + response.data.id + ' com o email ' + response.data.email + ' cadastrado com sucesso');
             history.push("/home");
         })
         .catch((erro) => {

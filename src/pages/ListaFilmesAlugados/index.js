@@ -43,15 +43,20 @@ function ListaFilmesAlugados() {
     }, []);
 
     return (
-        <Card title="Consultar Filmes Alugados">
+        <><Card title="Consultar Filmes Alugados">
             <div className='row'>
                 <div className='col-md-12'>
                     <div className='bs-component'>
-                    <FilmesAlugadosTable filmes={state.filmes}  />
+                        <FilmesAlugadosTable filmes={state.filmes} />
                     </div>
                 </div>
             </div>
         </Card>
+        <button style={{ width: '15%' }}
+            onClick={() => history.push('/cliente')}
+            className="btn btn-danger btn-lg">
+                <i className="pi pi-sign-in"></i> &nbsp; Voltar
+            </button></>
     );
 
 }

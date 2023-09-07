@@ -38,6 +38,7 @@ function ListaFilmes() {
         )
         .then((response) => {
             console.log(response.data)
+            alert('Filme ' + response.data.filme.nome + ' alugado com sucesso');
             history.push("/cliente");
         })
         .catch((erro) => {
@@ -80,18 +81,23 @@ function ListaFilmes() {
     }, []);
 
     return (
-        <Card title="Consultar Filmes">
+        <><Card title="Consultar Filmes">
             <div className='row'>
                 <div className='col-md-12'>
                     <div className='bs-component'>
-                    <FilmesTable filmes={state.filmes} 
-                        alugaFilme={alugaFilme}
-                        detalhesFilme={detalhesFilme}
-                        valorFilme={valorFilme} />
+                        <FilmesTable filmes={state.filmes}
+                            alugaFilme={alugaFilme}
+                            detalhesFilme={detalhesFilme}
+                            valorFilme={valorFilme} />
                     </div>
                 </div>
             </div>
         </Card>
+        <button style={{ width: '15%' }}
+        onClick={() => history.push('/cliente')}
+        className="btn btn-danger btn-lg">
+        <i className="pi pi-sign-in"></i> &nbsp; Voltar
+        </button></>
     );
 
 }
