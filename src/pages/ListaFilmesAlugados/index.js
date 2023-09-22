@@ -42,12 +42,42 @@ function ListaFilmesAlugados() {
         });
     }, []);
 
+    const devolveFilme = (id) => {
+        console.log('Detalhes filme');
+
+        const idCliente = JSON.parse(localStorage.getItem("userId"));
+        console.log(idCliente);
+
+        //const id = {id};
+
+        const cliente = {
+            id: idCliente
+        }
+
+        //console.log(id);
+
+        api
+        .post(`/locacoes/${id}`)
+        .then((response) => {
+            console.log(response.data)
+            alert('Filme ' + response.data.filme.nome + ' devolvido com sucesso');
+            history.push("/cliente");
+        })
+        .catch((erro) => {
+            console.log(erro);
+        });
+
+
+    };
+
     return (
         <><Card title="Consultar Filmes Alugados">
             <div className='row'>
                 <div className='col-md-12'>
                     <div className='bs-component'>
-                        <FilmesAlugadosTable filmes={state.filmes} />
+                        <FilmesAlugadosTable filmes={state.filmes} 
+                         devolveFilme={devolveFilme}
+                         />
                     </div>
                 </div>
             </div>
