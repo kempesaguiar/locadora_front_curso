@@ -60,7 +60,7 @@ function ListaFilmesAlugados() {
         .post(`/locacoes/${id}`)
         .then((response) => {
             console.log(response.data)
-            alert('Filme ' + response.data.filme.nome + ' devolvido com sucesso');
+            alert('Filme ' + response.data.filme.nome + ' devolvido com sucesso nesta data');
             history.push("/cliente");
         })
         .catch((erro) => {
